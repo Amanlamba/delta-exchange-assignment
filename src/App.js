@@ -3,7 +3,7 @@ import TradingPairsList from "./components/TradingPairsList/TradingPairsList";
 import { message } from "antd";
 import { processBTCUSD } from "./processors/btcusdProcessor";
 import { processETHUSD } from "./processors/ethusdProcessor";
-
+import SessionStorageWatcher from "./components/DemoUI/DemoUi";
 
 import "./App.css";
 
@@ -88,6 +88,8 @@ function App() {
   }, [isClosed]);
   return (
     <div className="App">
+      <h1>Session Storage Monitor</h1>
+      <SessionStorageWatcher />
       {/* <TradingPairsList
         data={data}
         loading={loading}
