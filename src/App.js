@@ -61,11 +61,11 @@ function App() {
       };
       ws.onmessage = function (event) {
         const jsonData = JSON.parse(event.data);
-        // console.log(JSON.stringify(jsonData));
+        // console.log(jsonData);
         // alert("Test");
-        if (jsonData.symbol === "BTCUSD") {
+        if (jsonData?.symbol === "BTCUSD") {
           processBTCUSD(jsonData.close, jsonData.timestamp);
-        } else if (jsonData.symbol === "ETHUSD") {
+        } else if (jsonData?.symbol === "ETHUSD") {
           processETHUSD(jsonData.close, jsonData.timestamp);
         }
         setMarkPrices((p) => {
