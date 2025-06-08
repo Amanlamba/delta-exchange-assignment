@@ -18,6 +18,7 @@ let prevEma100Value;
 let prevTimeStamp = -1;
 
 const FIFTEEN_MINUTES_MICROSECONDS = 900_000_000;
+// const FIFTEEN_MINUTES_MICROSECONDS = 10_000_000
 
 // --- Session Storage Logging ---
 function getStoredLogs() {
@@ -39,6 +40,8 @@ export function processBTCUSD(closingPrice, newTimeStamp) {
     currEma100Value = ema100.momentValue(closingPrice);
 
     let prevConditionBuyUp = !(prevEma30Value > prevEma50Value && prevEma50Value > prevEma100Value);
+
+    // console.log(`EMA 3 is ${currEma30Value}, EMA 5 is ${currEma50Value}, EMA 7 is ${currEma100Value}`);
 
     if (prevConditionBuyUp &&
       currEma30Value > currEma50Value &&
@@ -77,6 +80,11 @@ export function processBTCUSD(closingPrice, newTimeStamp) {
       alert(log);
       appendLogToSession(log);
     }
+
+    ema9.nextValue(closingPrice);
+    ema30.nextValue(closingPrice);
+    ema50.nextValue(closingPrice);
+    ema100.nextValue(closingPrice);
 
     prevEma9Value = currEma9Value;
     prevEma30Value = currEma30Value;

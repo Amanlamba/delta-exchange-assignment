@@ -23,6 +23,7 @@ class EMA {
 
         // Define momentValue calculation
         this.momentValue = (value) => {
+          console.log("EMA momentValue called", value);
           return (value - this.ema) * this.smooth + this.ema;
         };
       }

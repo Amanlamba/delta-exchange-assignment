@@ -64,6 +64,7 @@ function App() {
         // console.log(jsonData);
         // alert("Test");
         if (jsonData?.symbol === "BTCUSD") {
+          console.log(jsonData.close);
           processBTCUSD(jsonData.close, jsonData.timestamp);
         } else if (jsonData?.symbol === "ETHUSD") {
           processETHUSD(jsonData.close, jsonData.timestamp);
